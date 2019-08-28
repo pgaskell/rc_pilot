@@ -1,12 +1,14 @@
 /**
  * <mavlink_manager.h>
  *
- * Functions to start and stop the mavlink manager
+ * @brief   Functions to start and stop the mavlink manager
+ *
+ * @addtogroup MavlinkManager
+ * @{
  */
 
 #ifndef MAVLINK_MANAGER_H
 #define MAVLINK_MANAGER_H
-
 
 /**
  * @brief      Starts the mavlink manager
@@ -22,4 +24,6 @@ int mavlink_manager_init(void);
  */
 int mavlink_manager_cleanup(void);
 
-#endif // MAVLINK_MANAGER_H
+#endif  // MAVLINK_MANAGER_H
+
+/* @} end group Mavlink Manager */

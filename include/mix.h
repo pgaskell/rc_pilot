@@ -1,34 +1,38 @@
 /**
  * <include/mix.h>
  *
- * @brief      Functions to mix orthogonal inputs to motor controls
+ * @brief   Functions to mix orthogonal inputs to motor controls
  *
- *             MultiRotors are controlled by mixing roll, pitch, yaw, and
- *             throttle control oututs, a linear combination of which forms the
- *             control output to each motor. The coefficients to this
- *             combination is stored in a mixing matrix based on rotor layout.
- *             Also included here are functions to parse configuration strings
- *             and do the actual mixing.
+ * MultiRotors are controlled by mixing roll, pitch, yaw, and
+ * throttle control oututs, a linear combination of which forms the
+ * control output to each motor. The coefficients to this
+ * combination is stored in a mixing matrix based on rotor layout.
+ * Also included here are functions to parse configuration strings
+ * and do the actual mixing.
+ *
+ * @addtogroup Mix
+ * @{
  */
 
 #ifndef MIXING_MATRIX_H
 #define MIXING_MATRIX_H
 
-#define MAX_INPUTS 6	///< up to 6 control inputs (roll,pitch,yaw,z,x,y)
-#define MAX_ROTORS 8	///< up to 8 rotors
+#define MAX_INPUTS 6  ///< up to 6 control inputs (roll,pitch,yaw,z,x,y)
+#define MAX_ROTORS 8  ///< up to 8 rotors
 
 /**
  * @brief enum for possible mixing matrices defined here
  *
  * possible rotor configurations, see mixing_matrix_defs.h
  */
-typedef enum rotor_layout_t{
-	LAYOUT_4X,
-	LAYOUT_4PLUS,
-	LAYOUT_6X,
-	LAYOUT_8X,
-	LAYOUT_6DOF_ROTORBITS,
-	LAYOUT_6DOF_5INCH_MONOCOQUE
+typedef enum rotor_layout_t
+{
+    LAYOUT_4X,
+    LAYOUT_4PLUS,
+    LAYOUT_6X,
+    LAYOUT_8X,
+    LAYOUT_6DOF_ROTORBITS,
+    LAYOUT_6DOF_5INCH_MONOCOQUE
 } rotor_layout_t;
 
 /**
@@ -105,5 +109,6 @@ int mix_check_saturation(int ch, double* mot, double* min, double* max);
  */
 int mix_add_input(double u, int ch, double* mot);
 
+#endif  // MIXING_MATRIX_H
 
-#endif // MIXING_MATRIX_H
+/* @} end group Mix */
